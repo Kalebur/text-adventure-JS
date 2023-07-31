@@ -1,0 +1,207 @@
+{
+  "id": 3,
+  "filename": "area0.json",
+  "name": "The JSON Area",
+  "description": "This is the fourth area to be created. It uses JSON instead of a plaintext file.",
+  "roomCount": 6,
+  "objectCount": 4,
+  "actorCount": 2,
+
+  "objects": [
+    {
+      "type": "container",
+      "id": 0,
+      "keywords": ["teddy", "bear"],
+      "shortDesc": "a teddy bear",
+      "longDesc": "A huge teddy bear is lying on the ground.",
+      "description": "A huge teddy bear with big, brown eyes. There is a zipper on its back, and the stuffing has been removed.",
+      "weight": 5,
+      "wearLocations": ["HELD"],
+      "objectFlags": [
+        { "canTake": true },
+        { "isClosable": true },
+        { "isClosed": false },
+        { "isLockable": false },
+        { "isLocked": false }
+      ],
+      "maxWeight": 20
+    },
+    {
+      "type": "weapon",
+      "id": 1,
+      "keywords": ["butcher's", "cleaver"],
+      "shortDesc": "a huge butcher's cleaver",
+      "longDesc": "A huge butcher's cleaver was dropped here.",
+      "description": "A huge cleaver with numerous blood stains all over the blade. The steel handle shows signs of rust, but the blade itself is still razor sharp.",
+      "weight": 5,
+      "wearLocations": ["HELD"],
+      "objectFlags": [{ "canTake": true }]
+    },
+    {
+      "type": "equipment",
+      "id": 2,
+      "keywords": ["dalton", "trucker", "hat"],
+      "shortDesc": "a \"Dalton's Shipping Agency\" hat",
+      "longDesc": "A \"Dalton's Shipping Agency\" trucker hat is on the ground.",
+      "description": "A black trucker hat. It looks well worn with a curved bill and a few loose threads here and there. On the front is the faded logo of \"Dalton's Shipping Agency.\"",
+      "weight": 1,
+      "wearLocations": ["HEAD"],
+      "objectFlags": [{ "canTake": true }]
+    },
+    {
+      "type": "equipment",
+      "id": 3,
+      "keywords": ["band", "t-shirt"],
+      "shortDesc": "a \"KISS\" t-shirt",
+      "longDesc": "A t-shirt for the band \"KISS\" lies crumpled on the ground.",
+      "description": "A faded black t-shirt with all of the members of the band, \"KISS\" pictured on the front. The shirt has a number of small holes and tears all over it. The face of one of the band members has been marked out with a black marker.",
+      "weight": 1,
+      "wearLocations": ["TORSO"],
+      "objectFlags": [{ "canTake": true }]
+    }
+  ],
+
+  "actors": [
+    {
+      "id": 0,
+      "name": "a skeletal soldier",
+      "shortDesc": "a skeletal soldier",
+      "longDesc": "A skeletal soldier is wandering the grounds.",
+      "description": "The walking corpse of a long dead soldier. No flesh remains attached to its bones, and the armor it wears has been ravaged by time. The insignia of an enemy kingdom is faintly visible on the breastplate.",
+      "level": 1,
+      "currentExp": 100,
+      "maxHP": 100,
+      "maxMP": 0,
+      "strength": 5,
+      "dexterity": 5,
+      "constitution": 5,
+      "intelligence": 5,
+      "wisdom": 5,
+      "charisma": 5,
+      "gold": 25
+    },
+    {
+      "id": 1,
+      "name": "a zombie cook",
+      "shortDesc": "a zombie cook",
+      "longDesc": "A zombie in a tattered apron and trousers is shuffling about.",
+      "description": "You see nothing special about it. Nope. Not a thing. Absolutely nothing. It's the most UN-special zombie ever to exist. Zombies are just part of everyday life. You should already know what a zombie looks like, therefore it's pointless to describe it any further.\n\nHmm? What's that? Is it a man or a woman? Human? Elf? Dwarf? Look, it's a zombie. I already said you see NOTHING SPECIAL ABOUT IT. Stop asking questions! Geez! You'd think you want details in your games or something. Dang millenials...",
+      "level": 1,
+      "currentExp": 100,
+      "maxHP": 100,
+      "maxMP": 0,
+      "strength": 5,
+      "dexterity": 5,
+      "constitution": 5,
+      "intelligence": 5,
+      "wisdom": 5,
+      "charisma": 5,
+      "gold": 25
+    }
+  ],
+
+  "rooms": [
+    {
+      "id": 0,
+      "name": "An Endless Void",
+      "description": "A nebulous void of nothingness. Dark clouds go on endlessly in all directions. To the north is a doorway with blinding light spilling forth.",
+      "exits": [
+        {
+          "direction": "North",
+          "connectedAreaID": 0,
+          "connectedRoomID": 1
+        },
+        {
+          "direction": "West",
+          "connectedAreaID": 1,
+          "connectedRoomID": 0
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "name": "The First-est Room",
+      "description": "The hallowed halls of 'The First Room,' the room which was created first. Blessed be the walls of this sanctuary. Blessed indeed.",
+      "exits": [
+        {
+          "direction": "South",
+          "connectedAreaID": 0,
+          "connectedRoomID": 0
+        },
+        {
+          "direction": "West",
+          "connectedAreaID": 2,
+          "connectedRoomID": 0
+        },
+        {
+          "direction": "Northeast",
+          "connectedAreaID": 0,
+          "connectedRoomID": 2
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Gates of Mulforth Citadel",
+      "description": "The massive entryway to Mulforth Citadel has one giant door still barely attached to its hinges. The other door has been torn off and is lying farther inside the citadel grounds.",
+      "exits": [
+        {
+          "direction": "Southwest",
+          "connectedAreaID": 0,
+          "connectedRoomID": 1
+        },
+        {
+          "direction": "North",
+          "connectedAreaID": 0,
+          "connectedRoomID": 3
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "The Training Grounds",
+      "description": "People used to train here. That's why it's called the 'training' grounds.",
+      "exits": [
+        {
+          "direction": "South",
+          "connectedAreaID": 0,
+          "connectedRoomID": 2
+        },
+        {
+          "direction": "North",
+          "connectedAreaID": 0,
+          "connectedRoomID": 4
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "The Mess Hall",
+      "description": "Ugh, this hall sure is a mess!",
+      "exits": [
+        {
+          "direction": "South",
+          "connectedAreaID": 0,
+          "connectedRoomID": 3
+        },
+        {
+          "direction": "West",
+          "connectedAreaID": 0,
+          "connectedRoomID": 5
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Kitchen",
+      "description": "A long counter nearly 20 feet in length runs along the center of the room. Around the walls are a half-dozen ovens. Rusty pots, pans and other utensils are strewn about the area. Decaying foodstuffs fill the room with a powerful stench.",
+      "exits": [
+        {
+          "direction": "East",
+          "connectedAreaID": 0,
+          "connectedRoomID": 4
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #111;
+  color: #fff;
+  font-size: 62.5%;
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 50vw;
+  height: 100vh;
+}
+
+.message-window {
+  flex-basis: 95%;
+}
+
+#chat-box {
+  flex-basis: 5%;
+  font-size: 1.5rem;
+}
+
+.messages {
+  list-style: none;
+  font-size: 1.5rem;
+}
+
+.messages .spoken-msg {
+  color: cyan;
+  font-size: 1.5rem;
+}
+
+.unknown-command {
+  color: gray;
+}
+
+.msg-red {
+  color: red;
+}
