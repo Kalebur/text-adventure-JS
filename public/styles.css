@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  list-style: none;
 }
 
 body {
@@ -30,8 +31,12 @@ main {
 }
 
 .messages {
-  list-style: none;
   font-size: 1.5rem;
+  overflow-y: auto;
+}
+
+.messages .message {
+  width: 30%;
 }
 
 .messages .spoken-msg {

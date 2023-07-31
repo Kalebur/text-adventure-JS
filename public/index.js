@@ -1,3 +1,4 @@
+import { displayRoom } from "./gameHelpers.js";
 const socket = io();
 const chatBox = document.querySelector("#chat-box");
 const messages = document.querySelector(".messages");
@@ -83,12 +84,13 @@ socket.on("login message", (msgData) => {
       "spoken-msg"
     );
     messages.appendChild(message);
+    messages.appendChild(displayRoom(msgData.currentRoom));
   }
 });
 
 function createNewMessage(msgContent, msgClass = null, senderName = "") {
   const message = document.createElement("li");
-  if (msgClass) message.classList.add(msgClass);
+  if (msgClass) message.classList.add("message", msgClass);
   message.textContent = msgContent;
   return message;
 }

@@ -1,4 +1,6 @@
 import Room from "./Room.mjs";
+import Object from "./Object.mjs";
+import Mobile from "./Mobile.mjs";
 
 class Area {
   id = 0;
@@ -33,6 +35,26 @@ class Area {
     area.objectCount = areaData.objectCount;
     area.mobCount = areaData.actorCount;
     area.roomCount = areaData.roomCount;
+
+    // Pre-generate blank objects
+    for (let i = 0; i < area.objectCount; i++) {
+      const obj = new Object(area);
+      area.objects.push(obj);
+    }
+
+    // Pre-generate default mobs
+    for (let i = 0; i < area.mobCount; i++) {
+      const mob = new Mobile();
+      area.mobs.push(mob);
+    }
+
+    // Pre-generate empty rooms
+    for (let i = 0; i < area.roomCount; i++) {
+      const room = new Room();
+      area.rooms.push(room);
+    }
+
+    return area;
   }
 }
 

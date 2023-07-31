@@ -19,7 +19,7 @@ function initializeGame(areaList = []) {
     const areaData = JSON.parse(
       fs.readFileSync(path.join(areaDirectory, dirent.name), "utf-8")
     );
-    const area = new Area();
+    const area = Area.parseArea(areaData);
     Room.parseRooms(area, areaData);
     areaList.push(area);
   }

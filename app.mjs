@@ -23,12 +23,10 @@ const connectedPlayers = [];
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-  // res.send("File at: " + __dirname);
   res.sendFile(__dirname + "/index.html");
 });
 
 app.get("/room/:ID", (req, res) => {
-  console.log(req.params.ID);
   const area = new Area();
   res.send(
     "<div><h1>We made a new area just for you!</h1> <h2>It's called: " +
@@ -53,17 +51,18 @@ io.on("connection", (socket) => {
         const player = new Player();
         player.socket = socket;
         player.name = senderInfo.msg;
+        player.currentRoom = areas[0].rooms[0];
         connectedPlayers.push(player);
         socket.emit("login message", {
           loginState: "name entered",
           name: player.name,
+          currentRoom: player.currentRoom,
         });
         break;
     }
   });
 
   socket.on("chat message", (senderData) => {
-    console.log(`Message received: ${senderData}`);
     io.emit("chat message", senderData);
   });
 

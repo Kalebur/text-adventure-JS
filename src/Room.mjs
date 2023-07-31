@@ -17,14 +17,14 @@ class Room {
   displayRoom() {}
 
   static parseRooms(area, areaData) {
-    area.rooms = [];
     areaData.rooms.forEach((room) => {
       const newRoom = new Room();
-      newRoom.areaID = area.id;
-      newRoom.id = room.id;
-      newRoom.description = room.description;
-      newRoom.exits = room.exits;
-      area.rooms.push(newRoom);
+      const targetRoom = area.rooms[room.id];
+      targetRoom.areaID = areaData.id;
+      targetRoom.id = room.id;
+      targetRoom.description = room.description;
+      targetRoom.exits = room.exits;
+      // area[room.id] = newRoom;
     });
   }
 }
