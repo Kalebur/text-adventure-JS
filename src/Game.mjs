@@ -3,17 +3,21 @@ import Room from "./Room.mjs";
 import Area from "./Area.mjs";
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 function initializeGame(areaList = []) {
-  const dirname =
-    "D:\\Creative Stuff\\Programming Projects\\TextAdventure\\areas\\";
-  const dir = fs.opendirSync(dirname);
+  const areaDirectory = path.join(__dirname, "..", "areas");
+  const dir = fs.opendirSync(areaDirectory);
   // const area = new Area();
   // area.rooms.push(new Room());
   let dirent;
   while ((dirent = dir.readSync()) !== null) {
     const areaData = JSON.parse(
-      fs.readFileSync(path.join(dirname, dirent.name), "utf-8")
+      fs.readFileSync(path.join(areaDirectory, dirent.name), "utf-8")
     );
     const area = new Area();
     Room.parseRooms(area, areaData);

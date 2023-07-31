@@ -72,7 +72,6 @@ socket.on("login message", (msgData) => {
   if (msgData.loginState === "initial") {
     loginState.state = "name entered";
     const message = createNewMessage(msgData.msg);
-    console.log(message);
     messages.appendChild(message);
   } else if (msgData.loginState === "name entered") {
     // Display welcome back message
