@@ -20,10 +20,15 @@ function initializeGame(areaList = []) {
       fs.readFileSync(path.join(areaDirectory, dirent.name), "utf-8")
     );
     const area = Area.parseArea(areaData);
-    Room.parseRooms(area, areaData);
+    Room.parseRooms(area, areaData, areaList);
     areaList.push(area);
   }
   dir.closeSync();
+  areaList.forEach((area) => {
+    area.rooms.forEach((room) => {
+      Room.connectExits(room, areaList);
+    });
+  });
 }
 
 export { initializeGame };

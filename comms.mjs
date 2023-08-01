@@ -18,6 +18,10 @@ function handleCommand(senderInfo) {
       DoShout(io, playerName, args);
       break;
 
+    case "emote":
+      DoEmote(io, playerName, args);
+      break;
+
     default:
       socket.emit("unknown command", "WHAT?!");
       break;
@@ -34,6 +38,10 @@ function DoChangePlayerName(socket, args) {
 
 function DoShout(io, playerName, args) {
   io.emit("shout", { playerName: playerName, args: args });
+}
+
+function DoEmote(io, playerName, args) {
+  io.emit("emote", { playerName: playerName, args: args });
 }
 
 export { handleCommand };

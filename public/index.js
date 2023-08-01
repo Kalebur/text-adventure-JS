@@ -69,6 +69,15 @@ socket.on("shout", (msgData) => {
   pruneOldMessages();
 });
 
+socket.on("emote", (msgData) => {
+  const message = createNewMessage(
+    msgData.playerName + " " + msgData.args,
+    "msg-emote"
+  );
+  messages.appendChild(message);
+  pruneOldMessages();
+});
+
 socket.on("login message", (msgData) => {
   if (msgData.loginState === "initial") {
     loginState.state = "name entered";

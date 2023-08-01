@@ -44,6 +44,10 @@ main {
   font-size: 1.5rem;
 }
 
+.messages .msg-emote {
+  color: darkcyan;
+}
+
 .unknown-command {
   color: gray;
 }

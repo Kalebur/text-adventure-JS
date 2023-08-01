@@ -1,5 +1,6 @@
 import express from "express";
 import Area from "./src/Area.mjs";
+import Room from "./src/Room.mjs";
 import http from "http";
 import pkg from "lodash";
 import Player from "./src/Player.mjs";
@@ -56,7 +57,7 @@ io.on("connection", (socket) => {
         socket.emit("login message", {
           loginState: "name entered",
           name: player.name,
-          currentRoom: player.currentRoom,
+          currentRoom: new Room(),
         });
         break;
     }
