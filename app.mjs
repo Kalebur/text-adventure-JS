@@ -57,7 +57,11 @@ io.on("connection", (socket) => {
         socket.emit("login message", {
           loginState: "name entered",
           name: player.name,
-          currentRoom: new Room(),
+          currentRoom: {
+            roomName: player.currentRoom.name,
+            description: player.currentRoom.description,
+            exitInfo: Room.getExitNames(player.currentRoom, areas),
+          },
         });
         break;
     }

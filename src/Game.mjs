@@ -24,11 +24,6 @@ function initializeGame(areaList = []) {
     areaList.push(area);
   }
   dir.closeSync();
-  areaList.forEach((area) => {
-    area.rooms.forEach((room) => {
-      Room.connectExits(room, areaList);
-    });
-  });
 }
 
 export { initializeGame };

@@ -48,6 +48,10 @@ main {
   color: darkcyan;
 }
 
+.messages .exit {
+  margin-left: 2.5rem;
+}
+
 .unknown-command {
   color: gray;
 }

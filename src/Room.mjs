@@ -19,13 +19,11 @@ class Room {
   static parseRooms(area, areaData, areaList) {
     areaData.rooms.forEach((room) => {
       const newRoom = new Room();
-      const targetRoom = area.rooms[room.id];
-      targetRoom.areaID = areaData.id;
-      targetRoom.id = room.id;
-      targetRoom.description = room.description;
-      targetRoom.exits = room.exits;
-
-      area[room.id] = newRoom;
+      area.rooms[room.id].areaID = areaData.id;
+      area.rooms[room.id].id = room.id;
+      area.rooms[room.id].name = room.name;
+      area.rooms[room.id].description = room.description;
+      area.rooms[room.id].exits = room.exits;
     });
   }
 
@@ -38,6 +36,31 @@ class Room {
         console.log("Danger Will Robinson! DANGER! DANGER!");
       }
     });
+  }
+
+  static getExitNames(room, areaList) {
+    const exitNames = [];
+    room.exits.forEach((exit) => {
+      try {
+        const direction = exit.direction;
+        const exitName =
+          areaList[exit.connectedAreaID].rooms[exit.connectedRoomID].name;
+        exitNames.push({ direction, exitName });
+      } catch {
+        console.log("Area/Exit not found.");
+      }
+    });
+
+    return exitNames;
+  }
+
+  static cloneRoom(room) {
+    const newRoom = new Room();
+    newRoom.areaID = room.areaID;
+    newRoom.name = room.name;
+    newRoom.description = room.description;
+
+    return newRoom;
   }
 }
 

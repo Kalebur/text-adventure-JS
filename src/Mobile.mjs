@@ -13,7 +13,7 @@ class Mobile {
   currentExp;
   currentRoom;
 
-  Mobile() {
+  constructor() {
     this.name = "a Mob";
     this.shortDesc = "a brand new Mob";
     this.longDesc = "Some deity abandoned a poor, new Mob here.";

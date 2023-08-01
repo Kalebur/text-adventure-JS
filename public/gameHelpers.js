@@ -2,7 +2,7 @@ export function displayRoom(room) {
   const roomItem = document.createElement("li");
   const roomInfo = document.createElement("div");
   roomInfo.classList.add("message");
-  roomInfo.innerHTML = `-= ${room.name} =-<br>${room.description}<br><br>`;
+  roomInfo.innerHTML = `-= ${room.roomName} =-<br>${room.description}<br><br>`;
   roomInfo.appendChild(getExitList(room));
   roomItem.appendChild(roomInfo);
   return roomItem;
@@ -13,13 +13,10 @@ function getExitList(room) {
   const exitTitle = document.createElement("h4");
   exitTitle.textContent = "Exits:";
   exitList.appendChild(exitTitle);
-  room.exits.forEach((exit) => {
-    if (exit.connectedRoom) {
-      const exitItem = document.createElement("li");
-      exitItem.textContent = `${exit.direction} - ${exit.connectedRoom.name}`;
-    } else {
-      return;
-    }
+  room.exitInfo.forEach((exit) => {
+    const exitItem = document.createElement("li");
+    exitItem.classList.add("exit");
+    exitItem.textContent = `${exit.direction} - ${exit.exitName}`;
     exitList.appendChild(exitItem);
   });
 
